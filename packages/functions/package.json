@@ -1,0 +1,21 @@
+{
+  "name": "functions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Edge functions for sync, emails, and exports",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "dev": "supabase functions serve",
+    "deploy": "supabase functions deploy",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
+

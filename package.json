@@ -1,0 +1,40 @@
+{
+  "name": "bookme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BookMe - Multi-tenant SaaS booking platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "dev:all": "pnpm --parallel --filter \"./apps/**\" --filter \"./packages/**\" dev",
+    "build": "pnpm --filter web build",
+    "build:all": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "type-check": "pnpm -r type-check",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+    "db:migrate": "pnpm --filter db migrate",
+    "db:reset": "pnpm --filter db reset",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
