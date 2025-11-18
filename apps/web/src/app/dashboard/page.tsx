@@ -5,6 +5,13 @@ import { Logo } from '@/components/logo';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from 'ui';
 
+async function handleLogout() {
+  'use server';
+  const supabase = await createServerClient();
+  await supabase.auth.signOut();
+  redirect('/login');
+}
+
 export default async function DashboardPage() {
   const supabase = await createServerClient();
 
@@ -36,13 +43,6 @@ export default async function DashboardPage() {
     `)
     .eq('user_id', session.user.id)
     .single();
-
-  const handleLogout = async () => {
-    'use server';
-    const supabase = await createServerClient();
-    await supabase.auth.signOut();
-    redirect('/login');
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
