@@ -33,12 +33,23 @@ export function Logo({
 
   const logoImage = (
     <div className={cn('flex items-center gap-3', className)}>
+      {/* Light Logo for light mode */}
       <Image
-        src="/logos/bookme-logo.svg"
+        src="/logos/Light Logo.svg"
         alt="BookMe Logo"
         width={width}
         height={height}
         priority={priority}
+        className="dark:hidden"
+      />
+      {/* Dark Logo for dark mode */}
+      <Image
+        src="/logos/Dark Logo.svg"
+        alt="BookMe Logo"
+        width={width}
+        height={height}
+        priority={priority}
+        className="hidden dark:block"
       />
       {showText && (
         <span className={cn('font-bold text-foreground', textSize)}>

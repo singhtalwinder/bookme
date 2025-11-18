@@ -5,13 +5,6 @@ import { Logo } from '@/components/logo';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from 'ui';
 
-async function handleLogout() {
-  'use server';
-  const supabase = await createServerClient();
-  await supabase.auth.signOut();
-  redirect('/login');
-}
-
 export default async function DashboardPage() {
   const supabase = await createServerClient();
 
@@ -87,7 +80,7 @@ export default async function DashboardPage() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <form action={handleLogout}>
+            <form action="/api/auth/logout" method="POST">
               <Button type="submit" variant="outline" size="sm">
                 Sign out
               </Button>
